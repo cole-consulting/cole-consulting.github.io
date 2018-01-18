@@ -1,7 +1,32 @@
 ﻿---
 layout: default
 ---
-<h2>Hi I'm A Post Layout<h2>
-<h3>{{ page.title }}</h3>
+<!-- Nav -->
+<nav id="nav">
+	<ul class="container">
+		<li>
+			<a href="/#top">Home</a>
+		</li>
+		<li>
+			<a href="/#work">Work</a>
+		</li>
+		<li>
+			<a href="/#portfolio">Portfolio</a>
+		</li>
+		<li>
+			<a href="#contact">Contact</a>
+		</li>
+	</ul>
+</nav>
 
-{{ content }}
+<!-- Content -->
+<div class="wrapper style2">
+	<article>
+		<header>
+			<h2>{{ page.title }}</h2>
+		</header>
+		<div class="container">
+			{{ content }}
+		</div>
+	</article>
+</div>

@@ -20,13 +20,15 @@ layout: default
 </nav>
 
 <!-- Content -->
-<div class="wrapper style2">
+<div class="wrapper style1">
 	<article>
 		<header>
-			<h2>{{ page.title }}</h2>
+            <h2>{{ page.title }}</h2>
+            <h3>{{ page.display-date }}</h3>
 		</header>
-		<div class="container">
+		<div class="container post">
 			{{ content }}
-		</div>
+        </div>
+        <footer><a href="/"><< Back</a></footer>
 	</article>
 </div>

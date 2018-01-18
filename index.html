@@ -4,10 +4,18 @@ layout: default
 <!-- Nav -->
 <nav id="nav">
 	<ul class="container">
-		<li><a href="#top">Home</a></li>
-		<li><a href="#work">Work</a></li>
-		<li><a href="#portfolio">Portfolio</a></li>
-		<li><a href="#contact">Contact</a></li>
+		<li>
+			<a href="#top">Home</a>
+		</li>
+		<li>
+			<a href="#work">Work</a>
+		</li>
+		<li>
+			<a href="#portfolio">Portfolio</a>
+		</li>
+		<li>
+			<a href="#contact">Contact</a>
+		</li>
 	</ul>
 </nav>
 
@@ -16,16 +24,19 @@ layout: default
 	<article class="container" id="top">
 		<div class="row">
 			<div class="4u 12u(mobile)">
-				<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
+				<span class="image fit">
+					<img src="images/pic00.jpg" alt="" />
+				</span>
 			</div>
 			<div class="8u 12u(mobile)">
 				<header>
-					<h1>Hi. I'm <strong>Mike Cole</strong>.</h1>
+					<h1>Hi. I'm
+						<strong>Mike Cole</strong>.</h1>
 				</header>
 				<p>
-					I am the owner of Cole Consulting, a software company that focuses on custom software, consulting, and IT training. I have 20 years of experience in
-					many different industries, from manufacturing to financial to healthcare. I love helping new companies launch their software products, and my seasoned, practical
-					approach can be very valuable on these projects.
+					I am the owner of Cole Consulting, a software company that focuses on custom software, consulting, and IT training. I have
+					20 years of experience in many different industries, from manufacturing to financial to healthcare. I love helping new
+					companies launch their software products, and my seasoned, practical approach can be very valuable on these projects.
 				</p>
 				<a href="#work" class="button big scrolly">Learn about how I can help you</a>
 			</div>
@@ -45,27 +56,31 @@ layout: default
 					<section class="box style1">
 						<span class="icon featured fa-code"></span>
 						<h3>Custom Software</h3>
-						<p>I have 20 years of experience delivering software applications fulfilling a variety of needs. My preferred tools are the Microsoft stack, including ASP.NET and Azure.</p>
+						<p>I have 20 years of experience delivering software applications fulfilling a variety of needs. My preferred tools are
+							the Microsoft stack, including ASP.NET and Azure.</p>
 					</section>
 				</div>
 				<div class="4u 12u(mobile)">
 					<section class="box style1">
 						<span class="icon featured fa-graduation-cap"></span>
 						<h3>Training</h3>
-						<p>Does your staff need a boost learning a new technology? Junior dev need mentoring? Processes out of date? Just need to chat about your career trajectory? I can help!</p>
+						<p>Does your staff need a boost learning a new technology? Junior dev need mentoring? Processes out of date? Just need
+							to chat about your career trajectory? I can help!</p>
 					</section>
 				</div>
 				<div class="4u 12u(mobile)">
 					<section class="box style1">
 						<span class="icon featured fa-comments-o"></span>
 						<h3>Community</h3>
-						<p>I love to speak at tech conferences, facilitate growth and development, and keep up on new technology trends. Need a speaker or a sponsor for your event? Reach out!</p>
+						<p>I love to speak at tech conferences, facilitate growth and development, and keep up on new technology trends. Need
+							a speaker or a sponsor for your event? Reach out!</p>
 					</section>
 				</div>
 			</div>
 		</div>
 		<footer>
-			<p>I do many other things including staff augmentation, developer mentoring, professional code reviews, impending deadline assistance, and much more. Just ask!</p>
+			<p>I do many other things including staff augmentation, developer mentoring, professional code reviews, impending deadline
+				assistance, and much more. Just ask!</p>
 			<a href="#portfolio" class="button big scrolly">See what I've been up to</a>
 		</footer>
 	</article>
@@ -80,6 +95,20 @@ layout: default
 		</header>
 		<div class="container">
 			<div class="row">
+				{% for post in site.posts %}
+				<div class="4u 12u(mobile)">
+					<article class="box style2">
+						<a href="{{ post.url }}" class="image featured">
+							<img src="{{ post.img }}" alt="{{ post.title }}" />
+						</a>
+						<!--post.url, one above and one below -->
+						<h3>
+							<a href="{{ post.url }}">{{ post.title }}</a>
+						</h3>
+						<p>{{ post.display-date }}</p>
+					</article>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
 		<footer>
@@ -123,8 +152,12 @@ layout: default
 							<div class="row 200%">
 								<div class="12u">
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" /></li>
-										<li><input type="reset" value="Clear Form" class="alt" /></li>
+										<li>
+											<input type="submit" value="Send Message" />
+										</li>
+										<li>
+											<input type="reset" value="Clear Form" class="alt" />
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -137,10 +170,26 @@ layout: default
 					<hr />
 					<h3>Find me on ...</h3>
 					<ul class="social">
-						<li><a href="https://twitter.com/colemike" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.linkedin.com/in/colemike" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/mikecole" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="http://stackoverflow.com/users/86191/mike-cole" class="icon fa-stack-overflow"><span class="label">Stack Overflow</span></a></li>
+						<li>
+							<a href="https://twitter.com/colemike" class="icon fa-twitter">
+								<span class="label">Twitter</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/colemike" class="icon fa-linkedin">
+								<span class="label">LinkedIn</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/mikecole" class="icon fa-github">
+								<span class="label">Github</span>
+							</a>
+						</li>
+						<li>
+							<a href="http://stackoverflow.com/users/86191/mike-cole" class="icon fa-stack-overflow">
+								<span class="label">Stack Overflow</span>
+							</a>
+						</li>
 					</ul>
 					<hr />
 				</div>

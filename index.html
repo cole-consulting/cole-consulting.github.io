@@ -1,5 +1,119 @@
-<html>
-  <body>
-    Coming Soon
-  </body>
-</html>
+---
+layout: default
+---
+<!-- Nav -->
+<nav id="nav">
+	<ul class="container">
+		<li>
+			<a href="#top">Home</a>
+		</li>
+		<li>
+			<a href="#work">Work</a>
+		</li>
+		<li>
+			<a href="#portfolio">Portfolio</a>
+		</li>
+		<li>
+			<a href="#contact">Contact</a>
+		</li>
+	</ul>
+</nav>
+
+<!-- Home -->
+<div class="wrapper style1 first">
+	<article class="container" id="top">
+		<div class="row">
+			<div class="4u 12u(mobile)">
+				<span class="image fit">
+					<img src="images/pic00.jpg" alt="" />
+				</span>
+			</div>
+			<div class="8u 12u(mobile)">
+				<header>
+					<h1>Hi. I'm
+						<strong>Mike Cole</strong>.</h1>
+				</header>
+				<p>
+					I am the owner of <strong>Cole Consulting</strong>, a software company that focuses on <strong>custom software</strong>, <strong>consulting</strong>, and <strong>IT training</strong>. I have
+					<strong>20 years of experience</strong> in many different industries, from <strong>manufacturing</strong> to <strong>financial</strong> to <strong>healthcare</strong>. I love helping new
+					companies launch their software products, and my <strong>seasoned, practical approach</strong> might be just what you're looking for.
+				</p>
+				<a href="#work" class="button big scrolly">Learn about how I can help you</a>
+			</div>
+		</div>
+	</article>
+</div>
+
+<!-- Work -->
+<div class="wrapper style2">
+	<article id="work">
+		<header>
+			<h2>Here's some of the stuff I do.</h2>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="4u 12u(mobile)">
+					<section class="box style1">
+						<span class="icon featured fa-code"></span>
+						<h3>Custom Software</h3>
+						<p>I have 20 years of experience delivering software applications fulfilling a variety of needs. My preferred tools are
+							the Microsoft stack, including ASP.NET and Azure.</p>
+					</section>
+				</div>
+				<div class="4u 12u(mobile)">
+					<section class="box style1">
+						<span class="icon featured fa-graduation-cap"></span>
+						<h3>Training</h3>
+						<p>Does your staff need a boost learning a new technology? Junior dev need mentoring? Processes out of date? Just need
+							to chat about your career trajectory? I can help!</p>
+					</section>
+				</div>
+				<div class="4u 12u(mobile)">
+					<section class="box style1">
+						<span class="icon featured fa-comments-o"></span>
+						<h3>Community</h3>
+						<p>I love to speak at tech conferences, facilitate growth and development, and keep up on new technology trends. Need
+							a speaker or a sponsor for your event? Reach out!</p>
+					</section>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p>I do many other things including staff augmentation, developer mentoring, professional code reviews, impending deadline
+				assistance, and much more. Just ask!</p>
+			<a href="#portfolio" class="button big scrolly">See what I've been up to</a>
+		</footer>
+	</article>
+</div>
+
+<!-- Portfolio -->
+<div class="wrapper style3">
+	<article id="portfolio">
+		<header>
+			<h2>Here's what's been keeping me busy lately:</h2>
+			<!-- <p>Filters here?</p> -->
+		</header>
+		<div class="container">
+			<div class="row">
+				{% for post in site.posts %}
+				<div class="4u 12u(mobile)">
+					<article class="box style2">
+						<a href="{{ post.url }}" class="image featured">
+							<img src="{{ post.img }}" alt="{{ post.title }}" />
+						</a>
+						<!--post.url, one above and one below -->
+						<h3>
+							<a href="{{ post.url }}">{{ post.title }}</a>
+						</h3>
+						<p>{{ post.display-date }}</p>
+					</article>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<footer>
+			<p>Anything catch your attention?</p>
+			<a href="#contact" class="button big scrolly">Let's talk</a>
+		</footer>
+	</article>
+</div>

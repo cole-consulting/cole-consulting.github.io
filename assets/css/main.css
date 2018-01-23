@@ -1655,6 +1655,12 @@
 		cursor: default;
 	}
 
+		#nav img {
+			position: absolute;
+			left: 20%;
+			top: 25px;
+		}
+
 		#nav ul {
 			margin-bottom: 0;
 		}
@@ -1686,6 +1692,11 @@
 				border-right: solid 0.75em transparent;
 				border-top: solid 0.6em #282828;
 			}
+
+/* Logo */
+    .logo {
+		display: none !important;
+	}
 
 /* Articles */
 
@@ -2088,8 +2099,21 @@
 
 		/* Nav */
 
+			#nav img {
+				display: none;
+			}
+
 			#nav a {
 				padding: 0.5em;
+			}
+
+		/* Logo */
+			.mike {
+				display: none !important;
+			}
+
+			.logo {
+				display: block !important;
 			}
 
 		/* Articles */

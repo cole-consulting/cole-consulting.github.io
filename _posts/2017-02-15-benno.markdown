@@ -1,0 +1,21 @@
+---
+title: Benno
+display-date: February 15, 2017
+img: images/benno-logo.jpg
+---
+<div class="image centered">
+    <img class="title-image" src="/images/benno-logo.jpg" />
+</div>
+<p>
+    I was approached by a previous co-worker about a potential project he discovered where he needed development help. The project was for a local company run by my friend Cody Caraway named <a href="https://www.monday-creations.com/">Monday Creations</a>. The idea was to provide to realtors social media content targeted to millenials, and charge a monthly subscription to receive access to that content. <a href="https://www.getbenno.com/">Benno</a> was soon being designed on paper in a coffee shop.
+</p>
+<p>
+    The project was approved for a <a href="https://bizspark.microsoft.com/">Microsoft BizSpark</a> subscription, so that was a great help and saved Monday Creations a lot of money out of the gate. We decided on an ASP.NET MVC application running as an Azure Web App using SQL Server Azure as the backend. We integrated with <a href="https://paysimple.com/">PaySimple</a> for credit card processing and maintenance of the subscription. A lot of the content consisted of high quality image files so we stored those in Azure Blob Storage. We integrated with <a href="https://sendgrid.com/">SendGrid</a> to deliver email. We added functionality to provide a free trial, as well as disabling an account after the subscription lapsed.
+</p>
+<p>
+    In addition to development, I helped identify what exactly the minimum viable requirements were for the site so it could be launched quickly to start making them money to apply towards future enhancements. My previous experience in consulting were a great help, along with my experience with SaaS products running in Azure.
+</p>
+<blockquote>
+    Mike was definitely the right guy for the job. We knew what we needed out of the platform, but not the best practices in making it happen. Mike was able to suggest and create a solution that saved us money while hitting all our requirements. Mike is at the forefront of modern technology and has years of experience to bring to the table. I would highly recommend Mike!
+    <footer>-Cody Caraway, Partner at <a href="https://www.monday-creations.com/">Monday Creations</a></footer>
+</blockquote>

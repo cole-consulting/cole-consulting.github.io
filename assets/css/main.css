@@ -1618,27 +1618,35 @@
 		}
 
 		.wrapper.style4 {
+			background-color: #e9e9e9;			
+		}
+
+		.wrapper.style4 blockquote {
+			text-align: left;
+		}
+
+		.wrapper.style5 {
 			background-color: #303030;
 			color: #999;
 			text-shadow: -1px -1px 0px #181818;
 		}
 
-			.wrapper.style4 h1, .wrapper.style4 h2, .wrapper.style4 h3, .wrapper.style4 h4, .wrapper.style4 h5, .wrapper.style4 h6 {
+			.wrapper.style5 h1, .wrapper.style5 h2, .wrapper.style5 h3, .wrapper.style5 h4, .wrapper.style5 h5, .wrapper.style5 h6 {
 				color: #fff;
 			}
 
-			.wrapper.style4 form input[type=text],
-			.wrapper.style4 form input[type=password],
-			.wrapper.style4 form select,
-			.wrapper.style4 form textarea {
+			.wrapper.style5 form input[type=text],
+			.wrapper.style5 form input[type=password],
+			.wrapper.style5 form select,
+			.wrapper.style5 form textarea {
 				border: none;
 				background: #282828;
 			}
 
-				.wrapper.style4 form input[type=text]:focus,
-				.wrapper.style4 form input[type=password]:focus,
-				.wrapper.style4 form select:focus,
-				.wrapper.style4 form textarea:focus {
+				.wrapper.style5 form input[type=text]:focus,
+				.wrapper.style5 form input[type=password]:focus,
+				.wrapper.style5 form select:focus,
+				.wrapper.style5 form textarea:focus {
 					background: #252525;
 				}
 

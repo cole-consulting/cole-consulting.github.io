@@ -100,3 +100,23 @@ layout: default
 		</footer>
 	</article>
 </div>
+
+<!-- Testimonials -->
+<div class="wrapper style4">
+	<article id="testimonials">
+		<header>
+			<h2>Here's what people have to say about me:</h2>
+		</header>
+		<div class="container">
+			<div class="carousel">
+				{% for testimonial in site.testimonials %}
+				<div class="box">
+					<section>
+						<p>{{ testimonial }}</p>
+					</section>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</article>
+</div>

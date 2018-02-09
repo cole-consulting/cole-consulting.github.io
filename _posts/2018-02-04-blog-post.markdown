@@ -1,0 +1,6 @@
+---
+title: GitHub Pages Blog Post
+display-date: February 4, 2018
+img: images/blog-icon.jpg
+override-url: http://colemike.com/2018/02/04/running-github-pages-dev-environment-on-windows/
+---

@@ -81,12 +81,19 @@ layout: default
 				{% for post in site.posts %}
 				<div class="4u 12u(mobile)">
 					<article class="box style2">
+						{% if post.override-url != null %}
+						<a href="{{ post.override-url }}" class="image featured">
+						{% else %}
 						<a href="{{ post.url }}" class="image featured">
+						{% endif %}
 							<img src="{{ post.img }}" alt="{{ post.title }}" />
 						</a>
-						<!--post.url, one above and one below -->
 						<h3>
+							{% if post.override-url != null %}
+							<a href="{{ post.override-url }}">{{ post.title }}</a>
+							{% else %}
 							<a href="{{ post.url }}">{{ post.title }}</a>
+							{% endif %}
 						</h3>
 						<p>{{ post.display-date }}</p>
 					</article>

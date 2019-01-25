@@ -1,7 +1,7 @@
 ---
 title: KCDC
 display-date: July 14, 2018
-img: images/icc-logo.jpg
+img: images/kcdc-logo.jpg
 ---
 <p>
     This was my first <a href="https://www.kcdc.info/">KCDC</a> and it was incredible. The leaders ran the conference very well. I was impressed with how thoughtful they were to the speakers, including perks like a sweet hotel, a great party, neat shirts, and a photographer to take headshots.

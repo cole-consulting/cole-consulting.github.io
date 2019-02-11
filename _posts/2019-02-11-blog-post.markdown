@@ -2,5 +2,5 @@
 title: I Did My Job - Blog Post
 display-date: February 11, 2019
 img: images/blog-icon.jpg
-override-url: https://colemike.com/2018/07/20/i-did-my-job/
+override-url: https://colemike.com/2019/02/11/i-did-my-job/
 ---

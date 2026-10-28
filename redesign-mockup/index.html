@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cole Consulting · Software, Consulting, Training</title>
+  <meta name="description" content="Cole Consulting is a software company that provides custom software, consulting, and IT training." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #e8962e;
+      --orange-deep: #c9781a;
+      --orange-soft: #fdf1e2;
+      --ink: #1d1a17;
+      --ink-2: #4a443d;
+      --muted: #7a726a;
+      --line: #ece6de;
+      --bg: #fffdfa;
+      --bg-alt: #f8f4ee;
+      --dark: #1f1c19;
+      --radius: 18px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-2);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--orange-deep); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3 { color: var(--ink); line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange-deep); margin-bottom: 14px;
+    }
+    .section-head { max-width: 640px; margin-bottom: 48px; }
+    .section-head h2 { font-size: clamp(30px, 4vw, 42px); font-weight: 800; }
+    .section-head p { margin: 16px 0 0; font-size: 18px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font: inherit; font-weight: 700; font-size: 16px;
+      padding: 14px 24px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: #000; box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+    .btn-ghost { border-color: var(--line); color: var(--ink); background: #fff; }
+    .btn-ghost:hover { border-color: var(--ink); }
+    .btn-sm { padding: 9px 18px; font-size: 15px; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,253,250,.85); backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--ink); font-size: 18px; letter-spacing: -0.01em; }
+    .brand:hover { text-decoration: none; }
+    .brand img { width: 34px; height: 34px; }
+    .nav ul { list-style: none; display: flex; align-items: center; gap: 30px; margin: 0; padding: 0; }
+    .nav ul a { color: var(--ink-2); font-weight: 600; font-size: 15px; }
+    .nav ul a:hover { color: var(--ink); text-decoration: none; }
+    .nav ul .btn { color: #fff; }
+
+    /* Hero */
+    .hero { padding: 88px 0 72px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; right: -180px; top: -160px; width: 620px; height: 620px;
+      background: radial-gradient(circle, var(--orange-soft) 0%, rgba(253,241,226,0) 70%);
+      z-index: -1;
+    }
+    .hero .wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center; }
+    .hero h1 { font-size: clamp(42px, 6vw, 68px); font-weight: 800; }
+    .hero h1 span { color: var(--orange); }
+    .hero .lede { font-size: 20px; margin: 24px 0 0; max-width: 580px; }
+    .hero .lede strong { color: var(--ink); font-weight: 700; }
+    .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+    .portrait { position: relative; justify-self: center; width: min(380px, 100%); }
+    .portrait .face {
+      aspect-ratio: 1; border-radius: 50%; background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 60px -20px rgba(120, 70, 10, .25), 0 0 0 14px var(--orange-soft);
+      overflow: hidden; display: grid; place-items: center;
+    }
+    .portrait .face img { width: 88%; }
+    .portrait .badge {
+      position: absolute; right: 4%; bottom: 4%; width: 26%;
+      border-radius: 50%; border: 6px solid var(--bg);
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+
+    /* Facts strip */
+    .facts { padding: 0 0 24px; }
+    .facts ul {
+      list-style: none; margin: 0; padding: 28px 0 0; border-top: 1px solid var(--line);
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .facts li strong { display: block; color: var(--ink); font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+    .facts li span { font-size: 15px; color: var(--muted); }
+
+    /* Services */
+    .services { background: var(--bg-alt); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 32px; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -18px rgba(60, 40, 10, .2); }
+    .card .icon {
+      width: 52px; height: 52px; border-radius: 14px; background: var(--orange-soft);
+      display: grid; place-items: center; margin-bottom: 22px; color: var(--orange-deep);
+    }
+    .card h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .card p { margin: 0; }
+    .also {
+      margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    }
+    .also > span { font-weight: 700; color: var(--ink); margin-right: 6px; }
+    .chip {
+      background: #fff; border: 1px solid var(--line); border-radius: 999px;
+      padding: 6px 14px; font-size: 15px; font-weight: 500; color: var(--ink-2);
+    }
+
+    /* Work / community */
+    .work-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start; }
+    .feature {
+      border-radius: var(--radius); background: var(--dark); color: #d9d2c9; padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .feature::after {
+      content: ""; position: absolute; right: -80px; bottom: -80px; width: 260px; height: 260px;
+      border-radius: 50%; background: var(--orange); opacity: .14;
+    }
+    .feature .tag { color: var(--orange); font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .feature h3 { color: #fff; font-size: 30px; font-weight: 800; margin: 12px 0 14px; }
+    .feature p { margin: 0 0 14px; }
+    .feature a { color: #f6b867; font-weight: 600; }
+    .feature .logo-row { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+    .feature .logo-row img { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; background: #fff; }
+
+    .talks h3 { font-size: 20px; font-weight: 700; margin: 0 0 16px; }
+    .talk-list { list-style: none; margin: 0 0 32px; padding: 0; }
+    .talk-list li {
+      padding: 14px 0; border-bottom: 1px solid var(--line);
+      display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+    }
+    .talk-list li:first-child { border-top: 1px solid var(--line); }
+    .talk-list .t { color: var(--ink); font-weight: 600; }
+    .talk-list .t a { color: inherit; }
+    .talk-list .w { color: var(--muted); font-size: 14px; text-align: right; flex-shrink: 0; max-width: 45%; }
+    .events { display: flex; flex-wrap: wrap; gap: 10px; }
+    .events .chip { background: var(--bg-alt); border-color: transparent; }
+
+    /* Testimonials */
+    .testimonials { background: var(--bg-alt); }
+    .quotes { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+    .quote {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 30px; margin: 0; display: flex; flex-direction: column; justify-content: space-between;
+      grid-column: span 2;
+    }
+    .quote.big { grid-column: span 3; }
+    .quote blockquote { margin: 0 0 24px; color: var(--ink); font-size: 18px; line-height: 1.55; font-weight: 500; }
+    .quote.big blockquote { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+    .quote blockquote::before {
+      content: "\201C"; display: block; font-size: 56px; line-height: .8; color: var(--orange); font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .quote figcaption { font-size: 15px; color: var(--muted); }
+    .quote figcaption strong { color: var(--ink); display: block; font-weight: 700; }
+
+    /* Contact */
+    .contact .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+    .contact h2 { font-size: clamp(32px, 4.5vw, 48px); font-weight: 800; }
+    .contact .intro p { font-size: 19px; margin: 18px 0 32px; }
+    .social { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .social a {
+      display: inline-flex; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--ink); font-weight: 600; font-size: 15px; background: #fff;
+    }
+    .social a:hover { border-color: var(--ink); text-decoration: none; }
+    form {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      box-shadow: 0 30px 60px -30px rgba(60, 40, 10, .18);
+    }
+    form .full { grid-column: 1 / -1; }
+    label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    input, textarea {
+      width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+      border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--bg);
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 4px var(--orange-soft); }
+    textarea { min-height: 140px; resize: vertical; }
+    form .btn { justify-self: start; }
+
+    footer.site {
+      border-top: 1px solid var(--line); padding: 28px 0; font-size: 14px; color: var(--muted);
+    }
+    footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      section { padding: 72px 0; }
+      .hero { padding: 48px 0 56px; }
+      .hero .wrap, .work-grid, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .portrait { order: -1; width: 220px; justify-self: start; }
+      .cards { grid-template-columns: 1fr; }
+      .quotes { grid-template-columns: 1fr; }
+      .quote, .quote.big { grid-column: auto; }
+      .nav ul li:not(.cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      .hero .lede { font-size: 18px; }
+      .portrait { width: 180px; margin-left: 10px; }
+      .portrait .face { box-shadow: 0 20px 40px -20px rgba(120, 70, 10, .25), 0 0 0 10px var(--orange-soft); }
+      .facts ul { grid-template-columns: 1fr; gap: 16px; }
+      form { grid-template-columns: 1fr; padding: 22px; }
+      .talk-list li { flex-direction: column; gap: 2px; }
+      .talk-list .w { text-align: left; max-width: none; }
+      .feature { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="../images/logo.png" alt="" />Cole Consulting</a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work &amp; community</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="http://colemike.com/">Blog</a></li>
+        <li class="cta"><a class="btn btn-primary btn-sm" href="#contact">Let's talk</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Custom software · Consulting · IT training</span>
+        <h1>Hi, I'm Mike Cole<span>.</span></h1>
+        <p class="lede">
+          I'm the owner of Cole Consulting. I help companies build and launch software products, from
+          manufacturing to financial to healthcare, with a <strong>seasoned, practical approach</strong>.
+        </p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contact">Start a conversation →</a>
+          <a class="btn btn-ghost" href="#services">How I can help</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <div class="face"><img src="../images/mike.jpg" alt="Illustrated portrait of Mike Cole" /></div>
+        <img class="badge" src="../images/logo-big.jpg" alt="Cole Consulting logo" />
+      </div>
+    </div>
+  </header>
+
+  <div class="facts">
+    <div class="wrap">
+      <ul>
+        <li><strong>25+ years</strong><span>delivering software applications</span></li>
+        <li><strong>Conference talks</strong><span>Spoke at KCDC, Nebraska.Code(), Music City Code</span></li>
+        <li><strong>Full-stack generalist</strong><span>The right tool for the job, not a favorite one</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Here's some of the stuff I do.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Custom Software</h3>
+          <p>Applications built to fit the way your business actually works, from web apps and APIs to cloud infrastructure, using whatever tools fit the problem best.</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+          </div>
+          <h3>Training</h3>
+          <p>Does your staff need a boost learning a new technology? Junior dev need mentoring? Processes out of date? Just need to chat about your career trajectory? I can help!</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <h3>App Modernization</h3>
+          <p>Modern AI makes the vulnerabilities in legacy code easy to find, whether it's you looking or an attacker. Let's find them first, then get you shipping with frequent, automated deployments and infrastructure as code.</p>
+        </article>
+      </div>
+      <div class="also">
+        <span>Also:</span>
+        <span class="chip">Cloud migrations</span>
+        <span class="chip">Staff augmentation</span>
+        <span class="chip">Developer mentoring</span>
+        <span class="chip">Professional code reviews</span>
+        <span class="chip">Impending deadline assistance</span>
+        <span class="chip">Rescuing stalled projects</span>
+        <span class="chip">CI/CD pipeline setup</span>
+        <span class="chip">…and much more. Just ask!</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Work &amp; community</span>
+        <h2>Selected work.</h2>
+        <p>Client projects, plus the conference talks and local tech community I've been part of over the years.</p>
+      </div>
+      <div class="work-grid">
+        <article class="feature">
+          <div class="logo-row">
+            <img src="../images/benno-logo.jpg" alt="Benno logo" />
+            <span class="tag">Client project</span>
+          </div>
+          <h3>Benno</h3>
+          <p>
+            A subscription service for <a href="https://www.monday-creations.com/">Monday Creations</a> that provides realtors
+            with social media content targeted to millennials. I helped pin down the minimum viable requirements so it could
+            launch quickly, then built it as an ASP.NET MVC app on Azure with PaySimple subscriptions, Blob Storage, and SendGrid.
+          </p>
+          <p><a href="../2017/02/15/benno/">Read the story →</a></p>
+        </article>
+
+        <div class="talks">
+          <h3>Past talks</h3>
+          <ul class="talk-list">
+            <li><span class="t"><a href="https://docs.google.com/presentation/d/1RIPHKgcLd0ORnI65QXCcLnHuXa4QdASYQtepzp2ii5U/edit?usp=sharing">GitHub Pages: A Platform For Cheapskates</a></span><span class="w">KCDC, Nebraska.Code()</span></li>
+            <li><span class="t"><a href="https://docs.google.com/presentation/d/11bzL7cj_9W-Pdu-d7w53NjwrDNOC7HtHisuNA3vl-9k/edit?usp=sharing">The Trials And Tribulations Of Being A Fully Remote Developer</a></span><span class="w">Prairie.Code(), Iowa Code Camp, CRINETA</span></li>
+            <li><span class="t">Going The Extra Mile With Entity Framework Code First</span><span class="w">Nebraska.Code()</span></li>
+            <li><span class="t">TypeScript</span><span class="w">Iowa Code Camp</span></li>
+            <li><span class="t"><a href="../content/Creating And Maintaining Chocolatey Packages (Lightnight Talk).pdf">Creating And Maintaining Chocolatey Packages</a></span><span class="w">CVINETA lightning talk</span></li>
+          </ul>
+          <h3>Organized &amp; sponsored</h3>
+          <div class="events">
+            <span class="chip">Iowa Code Camp leadership</span>
+            <span class="chip">CVINETA .NET User Group</span>
+            <span class="chip">Cedar Valley BarCamp</span>
+            <span class="chip">Fayette County Pheasants Forever</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Testimonials</span>
+        <h2>What people say.</h2>
+      </div>
+      <div class="quotes">
+        <figure class="quote big">
+          <blockquote>Of the highest integrity. And every one of his clients loved him.</blockquote>
+          <figcaption><strong>Jeffrey Palermo</strong>CEO, <a href="https://www.clear-measure.com/">Clear Measure</a></figcaption>
+        </figure>
+        <figure class="quote big">
+          <blockquote>Mike was able to suggest and create a solution that saved us money while hitting all our requirements.</blockquote>
+          <figcaption><strong>Cody Caraway</strong>Partner, <a href="https://www.monday-creations.com/">Monday Creations</a></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>He was thorough, diligent and excelled at customer service and satisfying and delighting the customer.</blockquote>
+          <figcaption><strong>Janna Clement</strong>Project Manager, Clear Measure</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>Mike is a focused, determined, hard working guy with a very easy going personality. He is smart, understands his craft as a Sr. Software Engineer, and is eager to share and learn.</blockquote>
+          <figcaption><strong>Colin Pear</strong>Principal Software Engineer, Clear Measure</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>Despite the complexity of the system and the obscurity of the technology in use, he got up to speed very quickly and became an invaluable member of the project team.</blockquote>
+          <figcaption><strong>Brian Sullivan</strong>Principal Software Engineer, Clear Measure</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="intro">
+        <span class="eyebrow">Contact</span>
+        <h2>How can I help you?</h2>
+        <p>Share your big ideas, your current IT struggles, or the pitfalls you may be experiencing.</p>
+        <ul class="social">
+          <li><a href="https://www.linkedin.com/in/colemike">LinkedIn</a></li>
+          <li><a href="https://github.com/mikecole">GitHub</a></li>
+          <li><a href="http://stackoverflow.com/users/86191/mike-cole">Stack Overflow</a></li>
+          <li><a href="https://twitter.com/colemike">Twitter</a></li>
+        </ul>
+      </div>
+      <form method="post" action="https://formspree.io/coleconsulting1@gmail.com" onsubmit="event.preventDefault(); alert('Mockup only: the form is not wired up here.');">
+        <input type="text" name="_gotcha" style="display:none" />
+        <div><label for="name">Name</label><input type="text" name="name" id="name" /></div>
+        <div><label for="email">Email</label><input type="email" name="_replyto" id="email" /></div>
+        <div class="full"><label for="subject">Subject</label><input type="text" name="subject" id="subject" /></div>
+        <div class="full"><label for="message">Message</label><textarea name="message" id="message"></textarea></div>
+        <button class="btn btn-primary full" type="submit">Send message →</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© Cole Consulting LLC. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>

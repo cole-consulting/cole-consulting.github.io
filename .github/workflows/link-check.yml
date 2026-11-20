@@ -1,0 +1,56 @@
+# Builds the site the way GitHub Pages does, checks every link in it, and
+# opens (or updates) a "Dead links found" issue when something is broken.
+name: Link check
+
+on:
+  schedule:
+    - cron: "0 14 1 * *" # 1st of each month, 14:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          args: >-
+            --root-dir ${{ github.workspace }}/_site
+            --accept 200..=299,403,429,999
+            --max-retries 3
+            --exclude '^https://(www\.)?(linkedin|x|twitter)\.com'
+            --exclude '^https://formspree\.io'
+            --exclude '^https://fonts\.(googleapis|gstatic)\.com/?$'
+            --exclude '^https://cole-consulting\.net/404\.html$'
+            './_site/**/*.html'
+
+      - name: Find existing issue
+        if: steps.lychee.outputs.exit_code != 0
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "number=$(gh issue list --repo '${{ github.repository }}' --state open \
+            --search 'in:title "Dead links found"' --json number --jq '.[0].number')" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update issue
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Dead links found
+          content-filepath: ./lychee/out.md
+          issue-number: ${{ steps.existing.outputs.number }}

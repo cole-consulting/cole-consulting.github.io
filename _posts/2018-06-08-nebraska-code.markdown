@@ -9,5 +9,5 @@ img: images/nebraska-code-logo.jpg
 <p>
     Even though I was almost late to my own presentation (set a second alarm...) it went pretty well:
 
-    <img src="/images/2018-nebraska-code-eval.png"/>
+    <img src="/images/2018-nebraska-code-eval.png" alt="Session evaluation results" width="713" height="514" />
 </p>

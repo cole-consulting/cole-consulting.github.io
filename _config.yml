@@ -1,7 +1,39 @@
+title: Cole Consulting
+tagline: Software, Consulting, Training
+description: >-
+  Cole Consulting is Mike Cole's software company: custom software, app
+  modernization, and IT training with a seasoned, practical approach.
+url: https://cole-consulting.net
+author:
+  name: Mike Cole
+  twitter: colemike
+logo: /images/logo-big.jpg
+twitter:
+  username: colemike
+  card: summary_large_image
+social:
+  name: Mike Cole
+  links:
+    - https://www.linkedin.com/in/colemike
+    - https://github.com/mikecole
+    - https://stackoverflow.com/users/86191/mike-cole
+    - https://x.com/colemike
+
 permalink: pretty
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 exclude:
   - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/share.jpg
   - scope:
       type: posts
     values:

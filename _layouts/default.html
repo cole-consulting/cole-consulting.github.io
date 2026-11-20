@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if page.title %}{{ page.title }} · {% endif %}Cole Consulting · Software, Consulting, Training</title>
-    <meta name="description" content="Cole Consulting is a software company that provides custom software, consulting, app modernization, and IT training, with a seasoned, practical approach." />
+    {% seo %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,12 +21,13 @@
 
     <nav class="nav">
         <div class="wrap">
-            <a class="brand" href="/"><img src="/images/logo.png" alt="" />Cole Consulting</a>
-            <ul>
+            <a class="brand" href="/"><img src="/images/logo.png" alt="" width="34" height="34" />Cole Consulting</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+            <ul id="nav-links">
                 <li><a href="{{ layout.navprefix }}#services">Services</a></li>
                 <li><a href="{{ layout.navprefix }}#work">Work &amp; community</a></li>
                 <li><a href="{{ layout.navprefix }}#testimonials">Testimonials</a></li>
-                <li><a href="http://colemike.com/">Blog</a></li>
+                <li><a href="https://colemike.com/">Blog</a></li>
                 <li class="cta"><a class="btn btn-primary btn-sm" href="{{ layout.navprefix }}#contact">Let's talk</a></li>
             </ul>
         </div>
@@ -44,7 +44,7 @@
                 <ul class="social">
                     <li><a href="https://www.linkedin.com/in/colemike">LinkedIn</a></li>
                     <li><a href="https://github.com/mikecole">GitHub</a></li>
-                    <li><a href="http://stackoverflow.com/users/86191/mike-cole">Stack Overflow</a></li>
+                    <li><a href="https://stackoverflow.com/users/86191/mike-cole">Stack Overflow</a></li>
                     <li><a href="https://twitter.com/colemike">Twitter</a></li>
                 </ul>
             </div>
@@ -65,6 +65,20 @@
             <a href="#top">Back to top ↑</a>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            var nav = document.querySelector('.nav');
+            var toggle = nav.querySelector('.menu-toggle');
+            function setOpen(open) {
+                nav.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', open);
+                toggle.textContent = open ? 'Close' : 'Menu';
+            }
+            toggle.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+            nav.querySelectorAll('ul a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+        })();
+    </script>
 
 </body>
 

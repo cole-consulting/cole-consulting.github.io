@@ -4,7 +4,7 @@ display-date: February 15, 2017
 img: images/benno-logo.jpg
 ---
 <div class="image centered">
-    <img class="title-image" src="/images/benno-logo.jpg" />
+    <img class="title-image" src="/images/benno-logo.jpg" alt="Benno logo" width="384" height="269" />
 </div>
 <p>
     I was approached by a previous co-worker about a potential project he discovered where he needed development help. The project was for a local company run by my friend Cody Caraway named Monday Creations. The idea was to provide to realtors social media content targeted to millenials, and charge a monthly subscription to receive access to that content. Benno was soon being designed on paper in a coffee shop.

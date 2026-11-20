@@ -2,5 +2,6 @@
 title: Remote Interview Tips
 display-date: February 19, 2019
 img: images/blog-icon.jpg
+sitemap: false
 override-url: https://colemike.com/2019/02/19/remote-interview-tips/
 ---

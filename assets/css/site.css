@@ -250,6 +250,17 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
   .menu-toggle { margin-right: 0; }
 }
 
+/* About */
+.about .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start; border-top: 1px solid var(--line); padding-top: 96px; }
+.about { padding-top: 0; }
+.about h2 { font-size: clamp(30px, 4vw, 42px); font-weight: 800; }
+.about-body p { margin: 0 0 18px; font-size: 19px; }
+.about-body p:last-child { margin-bottom: 0; color: var(--ink); font-weight: 600; }
+.contact .intro .direct { font-weight: 600; font-size: 17px; color: var(--ink); margin: -16px 0 28px; }
+@media (max-width: 900px) {
+  .about .wrap { grid-template-columns: 1fr; gap: 24px; padding-top: 72px; }
+}
+
 /* Landing pages */
 .landing-hero { padding: 96px 0 80px; position: relative; overflow: hidden; }
 .landing-hero::before {

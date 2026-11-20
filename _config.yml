@@ -1,5 +1,8 @@
 permalink: pretty
 exclude:
   - CNAME
-collections:
-  - testimonials
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post

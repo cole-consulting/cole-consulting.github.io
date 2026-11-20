@@ -8,7 +8,7 @@ img: images/barcamp-logo.jpg
     to try to draw in additional crowds that we usually get.
 </p>
 <p>
-    Along with this comes creating/maintaining the website (<a href="http://barcampcv.com/">http://barcampcv.com</a>) as a GitHub Pages website. GitHub Pages is a perfect fit because it's free and our content
+    Along with this comes creating/maintaining the website (barcampcv.com) as a GitHub Pages website. GitHub Pages is a perfect fit because it's free and our content
     changes so infrequently. Additional responsibilities include seeking donations from area businesses, general coordination and delegation, handling lunch, and whatever else pops up.
 </p>
 <p>
